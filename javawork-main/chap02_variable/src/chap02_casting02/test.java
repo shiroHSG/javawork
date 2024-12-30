@@ -44,7 +44,7 @@ public class test {
 	    System.out.printf("%f\n",(float)iNum1 / iNum2);
 	    
 	    System.out.println(iNum1 / (int)fNum);
-	    System.out.printf("%.13f\n",iNum1 / fNum);
+	    System.out.println(iNum1 / (double)fNum);
 	    
 	    System.out.println((int)ch);
 	    System.out.println((char)(ch+1));
