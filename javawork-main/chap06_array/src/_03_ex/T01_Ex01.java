@@ -9,7 +9,7 @@ public class T01_Ex01 {
 		Scanner input = new Scanner(System.in);
 		
 //		1. 길이 10인 배열을 선언하고 1~10까지 반복문을 
-//		   이용하여 순서대로 넣고 출력하기
+///		   이용하여 순서대로 넣고 출력하기
 		int[] arr = new int[10];
 		
 		for(int i=0; i<10; i++)
