@@ -1,5 +1,6 @@
 package _03_ex;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class T01_Ex01 {
@@ -10,118 +11,129 @@ public class T01_Ex01 {
 		
 //		1. 길이 10인 배열을 선언하고 1~10까지 반복문을 
 ///		   이용하여 순서대로 넣고 출력하기
-		int[] arr = new int[10];
-		
-		for(int i=0; i<10; i++)
-			arr[i] = input.nextInt();
-		
-		for(int i=0; i<10; i++)
-			System.out.print(arr[i] + " ");
-		System.out.println();
-		
-//		2. 길이 10인 배열을 선언하고 1~10까지 값을 반복문을
-//		   이용하여 역순으로 배열 인덱스에 넣고 값 출력
-		int[] arr2 = new int[10];
-		for(int i=0; i<10; i++)
-			arr2[i] = input.nextInt();
-		
-		for(int i=9; i>=0; i--)
-			System.out.print(arr[i] + " ");
-		System.out.println();
-
-//		3. 사용자로 부터 입력받은 수 만큼 배열을 만들고
-//		   1~입력받은 수를 차례대로 넣어 출력
-		int num = input.nextInt();
-		int[] arr3 = new int[num];
-		for(int i=0; i<num; i++)
-			arr3[i] = input.nextInt();
-
-//		4. 길이가 5일 배열에 사과,귤,포도,복숭아,참외로 초기화한후
-//		   배열 인덱스를 이용하여 귤 출력
-		String[] arr4 = {"사과", "귤", "포도", "복숭아", "참외"};
-		for(String ar : arr4) {
-			System.out.print(ar + " ");
-		}
-		
-
-//		5. 문자열을 입력 받아 문자 하나하나를 배열에 넣고 검색할 문자가 문자열에 몇 개 들어가 있는지
-//		   개수와 몇 번째 인덱스에 위치하는지 인덱스를 출력
-//		   ex)
-//		   문자열 : application
-//		   문자 : i
-//		   application에 i가 존재하는 위치(인덱스) : 4 8 
-//		   i 개수 : 2
-		
-		String str = input.next();
-		char s = input.next().charAt(0);
-		char[] cArr = new char[str.length()];
-		int count=0;
-		System.out.print("application에 i가 존재하는 위치(인덱스) : ");
-		for(int i=0; i<cArr.length; i++) {
-			if(s==cArr[i]) {
-				System.out.println(i + " ");
-				count++;
-			}
-		} 
-		System.out.println("i 개수 : "+count);
-
-
-//		6. 배열에 요일(월,화,수,목,금,토,일)을 초기화하여 넣고 사용자로 부터 0~6사이의 숫자를 입력받아
-//		   숫자와 같은 요일 출력
-//		   ex.
-//		   0 ~ 6 사이 숫자 입력 : 4			
-//		   금요일
-//		   0 ~ 6 사이 숫자 입력 : 7
-//		   잘못 입력하셨습니다.
-		
-		char[] day = {'월', '화', '수', '목', '금', '토', '일'};
-		int n = input.nextInt();
-		if(n>6)
-			System.out.println("wrong number");
-		else
-			System.out.println(day[n]);
-
-//		7. 사용자로 부터 배열의 크기를 입력받아 그 배열의 갯수만큼 숫자로 입력받아 배열에 저장하고
-//		   배열 전체의 합 출력
-		n = input.nextInt();
-		int[] numArr = new int[n];
-		int sum = 0;
-		for(int i=0; i<n; i++) {
-			sum+=numArr[i];
-		}
-		System.out.println(sum);
-
-//		8. 3이상인 홀수 자연수를 입력 받아 배열의 중간까지는 1부터 1씩 증가하여 오름차순으로 값을 넣고,
-//		   중간 이후부터 끝까지는 1씩 감소하여 내림차순으로 값을 넣어 출력하세요.
-//		   단, 입력한 정수가 홀수가 아니거나 3 미만일 경우 “다시 입력하세요”를 출력하고
-//		   다시 정수를 받도록 하세요. 
+//		int[] arr = new int[10];
+//		
+//		for(int i=0; i<10; i++)
+//			arr[i] = input.nextInt();
+//		
+//		for(int i=0; i<10; i++)
+//			System.out.print(arr[i] + " ");
+//		System.out.println();
+//		
+////		2. 길이 10인 배열을 선언하고 1~10까지 값을 반복문을
+////		   이용하여 역순으로 배열 인덱스에 넣고 값 출력
+//		int[] arr2 = new int[10];
+//		for(int i=0; i<10; i++)
+//			arr2[i] = input.nextInt();
+//		
+//		for(int i=9; i>=0; i--)
+//			System.out.print(arr[i] + " ");
+//		System.out.println();
 //
-//		   ex.
-//		   정수 : 4
-//		   다시 입력하세요.
-//		   정수 : -6
-//		   다시 입력하세요.
-//		   정수 : 5
-//		   1, 2, 3, 2, 1
-		n=2;
-		boolean finish = false;
-		while(n%2!=1) {
-			System.out.print("정수 : ");
-			n = input.nextInt();
-		}
-		int[] numArr2 = new int[n];
+////		3. 사용자로 부터 입력받은 수 만큼 배열을 만들고
+////		   1~입력받은 수를 차례대로 넣어 출력
+//		int num = input.nextInt();
+//		int[] arr3 = new int[num];
+//		for(int i=0; i<num; i++)
+//			arr3[i] = input.nextInt();
+//
+////		4. 길이가 5일 배열에 사과,귤,포도,복숭아,참외로 초기화한후
+////		   배열 인덱스를 이용하여 귤 출력
+//		String[] arr4 = {"사과", "귤", "포도", "복숭아", "참외"};
+//		for(String ar : arr4) {
+//			System.out.print(ar + " ");
+//		}
+//		
+//
+////		5. 문자열을 입력 받아 문자 하나하나를 배열에 넣고 검색할 문자가 문자열에 몇 개 들어가 있는지
+////		   개수와 몇 번째 인덱스에 위치하는지 인덱스를 출력
+////		   ex)
+////		   문자열 : application
+////		   문자 : i
+////		   application에 i가 존재하는 위치(인덱스) : 4 8 
+////		   i 개수 : 2
+//		
+//		String str = input.next();
+//		char s = input.next().charAt(0);
+//		char[] cArr = new char[str.length()];
+//		int count=0;
+//		System.out.print("application에 i가 존재하는 위치(인덱스) : ");
+//		for(int i=0; i<cArr.length; i++) {
+//			if(s==cArr[i]) {
+//				System.out.println(i + " ");
+//				count++;
+//			}
+//		} 
+//		System.out.println("i 개수 : "+count);
+//
+//
+////		6. 배열에 요일(월,화,수,목,금,토,일)을 초기화하여 넣고 사용자로 부터 0~6사이의 숫자를 입력받아
+////		   숫자와 같은 요일 출력
+////		   ex.
+////		   0 ~ 6 사이 숫자 입력 : 4			
+////		   금요일
+////		   0 ~ 6 사이 숫자 입력 : 7
+////		   잘못 입력하셨습니다.
+//		
+//		char[] day = {'월', '화', '수', '목', '금', '토', '일'};
+//		int n = input.nextInt();
+//		if(n>6)
+//			System.out.println("wrong number");
+//		else
+//			System.out.println(day[n]);
+//
+////		7. 사용자로 부터 배열의 크기를 입력받아 그 배열의 갯수만큼 숫자로 입력받아 배열에 저장하고
+////		   배열 전체의 합 출력
+//		n = input.nextInt();
+//		int[] numArr = new int[n];
+//		int sum = 0;
+//		for(int i=0; i<n; i++) {
+//			sum+=numArr[i];
+//		}
+//		System.out.println(sum);
+//
+////		8. 3이상인 홀수 자연수를 입력 받아 배열의 중간까지는 1부터 1씩 증가하여 오름차순으로 값을 넣고,
+////		   중간 이후부터 끝까지는 1씩 감소하여 내림차순으로 값을 넣어 출력하세요.
+////		   단, 입력한 정수가 홀수가 아니거나 3 미만일 경우 “다시 입력하세요”를 출력하고
+////		   다시 정수를 받도록 하세요. 
+////
+////		   ex.
+////		   정수 : 4
+////		   다시 입력하세요.
+////		   정수 : -6
+////		   다시 입력하세요.
+////		   정수 : 5
+////		   1, 2, 3, 2, 1
+//		n=2;
+//		boolean finish = false;
+//		while(n%2!=1) {
+//			System.out.print("정수 : ");
+//			n = input.nextInt();
+//		}
+//		int[] numArr2 = new int[n];
+//		
+//
+////		9. 사용자가 입력한 값이 배열에 있는지 검색하여
+////		   있으면 “OOO 치킨 배달 가능“, 없으면 “OOO 치킨은 없는 메뉴입니다“를 출력하세요.
+////		   단, 치킨 메뉴가 들어가있는 배열은 본인 스스로 정하세요.
+////		   ex.
+////		   치킨 이름을 입력하세요 : 양념			
+////		   양념치킨 배달 가능
+////
+////		   치킨 이름을 입력하세요 : 불닭
+////		   불닭치킨은 없는 메뉴입니다.
+//		String[] chickArr = {"양념", "간장", "후라이드"};
+//		String cs = input.next();
+//		for(int i=0; i<chickArr.length; i++) {
+//			if(cs==chickArr[i]) {
+//				System.out.println(chickArr[i]);
+//				break;
+//			}
+//			if(i == chickArr.length-1)
+//				System.out.println("x");
+//		}
 		
 
-//		9. 사용자가 입력한 값이 배열에 있는지 검색하여
-//		   있으면 “OOO 치킨 배달 가능“, 없으면 “OOO 치킨은 없는 메뉴입니다“를 출력하세요.
-//		   단, 치킨 메뉴가 들어가있는 배열은 본인 스스로 정하세요.
-//		   ex.
-//		   치킨 이름을 입력하세요 : 양념			
-//		   양념치킨 배달 가능
-//
-//		   치킨 이름을 입력하세요 : 불닭
-//		   불닭치킨은 없는 메뉴입니다.
-//
 //		10. 10개의 값을 저장할 수 있는 정수형 배열을 선언 및 할당하고
 //		     1~10 사이의 난수를 발생시켜 배열에 초기화 후
 //		     배열 전체 값과 그 값 중에서 최대값과 최소값을 출력하세요.
@@ -130,10 +142,50 @@ public class T01_Ex01 {
 //		     5 3 2 7 4 8 6 10 9 10 
 //		     최대값 : 10
 //		     최소값 : 2
-//
+//		int[] numArr3 = new int[10];
+//		for(int i=0; i<10; i++) {
+//			numArr3[i] = (int)(Math.random()*10+1);
+//		}
+//		for(int arr5 : numArr3)
+//			System.out.print(arr5 + " ");
+//		
+//		int max,min,temp;
+//		max = numArr3[0];
+//		min = numArr3[0];
+//		for(int i=0; i<numArr3.length-1; i++) {
+//			if(max>numArr3[i]) {
+//				temp = max;
+//				max = numArr3[i];
+//				numArr3[i] = temp;
+//			}
+//			if(min<numArr3[i]) {
+//				temp = min;
+//				min = numArr3[i];
+//				numArr3[i] = min;
+//			}	
+//		}
+//		System.out.println("max : " + max + " min : " + min);
+
 //		11. 사용자로부터 정수값 5개 배열에 입력
 //		   오름차순 정렬로 정렬하기
-//
+//		int[] numArr4 = new int[5];
+//		int temp2, max2;
+//		for(int i=0; i<5; i++) {
+//			numArr4[i] = input.nextInt();
+//		}
+//		max2 = numArr4[0];
+//		for(int i=0; i<numArr4.length-1; i++) {
+//			for(int j=0; j<numArr4.length-1-i; j++) {
+//				if(max2>numArr4[i]) {
+//					temp2 = numArr4[i];
+//					numArr4[i] = max2;
+//					max2 = temp2;
+//				}
+//			}
+//		}
+//		
+//		System.out.println(Arrays.toString(numArr4));
+
 //		12. 각 학생별 국어 영어 수학점수의 총점과 평균을 구하고
 //		   각 과목별 총점과 평균을 구해 아래와 같이 출력하기
 //		   점수는 2차원 배열로 마음대로 넣는다.
@@ -148,8 +200,31 @@ public class T01_Ex01 {
 //		------------------------------------------
 //		총점   479   500   387 
 //		평균  95.0  100.0  78.3
-
-
+		int[][] score = {{95, 100, 78}, {68, 57, 100}, {62, 97, 85}, {85, 83, 69}, {86, 74, 38}};
+		int sum;
+		int sumK = 0, sumE = 0, sumM = 0;
+		double avg;
+		System.out.println("번호\t"+"국어\t"+"영어\t"+"수학\t"+"총점\t"+"평균");
+		System.out.println("---------------------------------------------");
+		for(int i=0; i<score.length; i++) {
+			sum=0;
+			System.out.print((i+1)+"\t");
+			for(int j=0; j<score[i].length; j++) {
+				System.out.print(score[i][j]+"\t");
+				sum += score[i][j];
+				if(j==0)
+					sumK+=score[i][j];
+				if(j==1)
+					sumE+=score[i][j];
+				if(j==2)
+					sumM+=score[i][j];
+			}
+			avg=sum/3.0;
+			System.out.printf("%d\t%.1f\n",sum,avg);
+		}
+		System.out.println("---------------------------------------------");
+		System.out.println("총점\t" + sumK + "\t" + sumE + "\t" + sumM);
+		System.out.printf("평균\t%.1f\t%.1f\t%.1f",sumK/5.0,sumE/5.0,sumM/5.0);
 
 	}
 
