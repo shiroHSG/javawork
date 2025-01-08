@@ -19,6 +19,8 @@ public class T01_intArray {
 		      int[] 변수명 = {1,2,3,4};   
 		 */
 		
+		
+		
 		int arrayInt[] = new int[10];
 		int[] arrayInt2 = new int[5];
 		
