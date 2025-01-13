@@ -1,4 +1,4 @@
-package _07_ex;
+package _08_interfacePolymorphism;
 
 public class Tv implements Product {
 	boolean power;
@@ -24,5 +24,10 @@ public class Tv implements Product {
 	@Override
 	public void search(String search) {
 		System.out.println(search + "를 유튜브에서 검색합니다.");
+	}
+	
+	@Override
+	public String toString() {	
+		return "Tv";
 	}
 }

@@ -1,8 +1,8 @@
-package _07_ex;
+package _08_interfacePolymorphism;
 
 public interface Product {
-	void power();
-	int volume(int volume);
+	/* public abstract */ void power();
+	/* public abstract */ int volume(int volume);
 	
 	static void aiSpeak(String str) {
 		System.out.println(str);

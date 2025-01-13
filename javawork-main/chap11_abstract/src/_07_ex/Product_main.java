@@ -3,27 +3,29 @@ package _07_ex;
 public class Product_main {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		Game game = new Game();
+		
+		System.out.print(game);
+		game.power();
+		
+		System.out.println("볼륨 : " + game.volume(5));
+		game.changeGame("왕좌의 게임");
+		
+		System.out.println("-----------------------------------");
+		
 		Tv tv = new Tv();
-
-        // 전원 켜기
-        tv.powerOn();
-
-        // 볼륨 올리기
-        tv.volumeUp(10);
-
-        // 채널 변경
-        tv.setChannel(5);
-
-        // 볼륨 내리기
-        tv.volumeDown(3);
-
-        // 전원 끄기
-        tv.powerOff();
-
-        // 전원이 꺼진 상태에서 동작 테스트
-        tv.volumeUp(5);
-        tv.setChannel(10);
+		
+		System.out.print("Tv의 ");
+		tv.power();
+		
+		System.out.println("볼륨 : " + tv.volume(10));
+		System.out.println("채널 : " + tv.channel(9));
+		
+		System.out.println("-----------------------------------");
+		game.search("메이플 스토리");
+		Product.aiSpeak("오늘 날씨 어때?");
+		
+		tv.search("재미있는 얘기");
+		Product.aiSpeak("오늘 점심메뉴를 추천해죠!");
 	}
-
 }

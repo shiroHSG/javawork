@@ -1,6 +1,6 @@
-package _07_ex;
+package _08_interfacePolymorphism;
 
-public class Tv implements Product {
+public class Game implements Product  {
 	boolean power;
 	
 	@Override
@@ -17,12 +17,12 @@ public class Tv implements Product {
 		return volume;
 	}
 	
-	int channel(int channel) {
-		return channel;
+	void changeGame(String gameName) {
+		System.out.println(gameName + "로 변환합니다");
 	}
 	
 	@Override
-	public void search(String search) {
-		System.out.println(search + "를 유튜브에서 검색합니다.");
+	public String toString() {	// class의 최상위 클래스 Object에 있는 메소드
+		return "game";
 	}
 }

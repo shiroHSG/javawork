@@ -1,52 +1,28 @@
 package _07_ex;
 
-public class Game implements Product {
+public class Game implements Product  {
+	boolean power;
 	
-	private boolean isPowerOn = false;
-	private int volume = 0;
-	private String game = "";
-
 	@Override
-	public void powerOn() {
-		isPowerOn = true;
+	public void power() {
+		power = !power;
+		if(power) 
+			System.out.println("전원을 켭니다");
+		else
+			System.out.println("전원을 끕니다");
 	}
 
 	@Override
-	public void powerOff() {
-		isPowerOn = false;
-	}
-
-	@Override
-	public void volumeUp(int volume) {
-		if(isPowerOn) {
-			this.volume += volume;
-			System.out.println("volume : " + this.volume);
-		}
-		else {
-			System.out.println("power off");
-		}
-	}
-
-	@Override
-	public void volumeDown(int volume) {
-		if(isPowerOn) {
-			this.volume -= volume;
-			System.out.println("volume : " + this.volume);
-		}
-		else {
-			System.out.println("power off");
-		}
-		
+	public int volume(int volume) {		
+		return volume;
 	}
 	
-	public void switchGame(String game) {
-		if(isPowerOn) {
-			this.game = game;
-			System.out.println("channel : " + this.game);
-		}
-		else {
-			System.out.println("power off");
-		}
+	void changeGame(String gameName) {
+		System.out.println(gameName + "로 변환합니다");
 	}
-
+	
+	@Override
+	public String toString() {	// class의 최상위 클래스 Object에 있는 메소드
+		return "game";
+	}
 }
