@@ -1,30 +1,25 @@
 package _03_ex;
 
-import java.util.ArrayList;
-import java.util.Scanner;
-
 public class BookRun {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		Scanner input = new Scanner(System.in);
-		LibraryController lc = new LibraryController(new Member("name", 20, "gender"));
+		LibraryController lc = new LibraryController(new Member("홍길동", 23, "남자"));
 		
-		//책 넣기
-		lc.inserBook();
+		System.out.print("책 구매자 = ");
+		lc.info();
 		
-		//책 목록 출력
-		ArrayList<Book> bookList = lc.selectAll();
-		for(int i=0; i<bookList.size(); i++) {
-			System.out.println(bookList.get(i));
-			
+		lc.insertBook();
+		System.out.println(lc.selectAll());
+		
+		lc.insertBook(new Book("springBoot", "박봄이", "위키북스"));
+		System.out.println(lc.selectAll());
+		
+		Book book = lc.searchBook("java");
+		if(book == null) {
+			System.out.println("찾는 책이 없습니다");
+		} else {
+			System.out.println("찾은 책 : " + book);
 		}
-		//책 검색
-		System.out.print("검색할 책 이름 : ");
-		String bookName = input.next();
-		Book book = lc.searchBook(bookName);
-		System.out.println(book);
-		
-		input.close();
 	}
 }
+

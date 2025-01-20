@@ -1,34 +1,45 @@
 package _03_ex;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class LibraryController {
-	Member member = new Member();
-	ArrayList<Book> aList = new ArrayList<>();
+	Member member;
+	List<Book> aList = new ArrayList<>();
 	
 	public LibraryController(Member member) {
 		this.member = member;
 	}
 	
-	void info() {
-		System.out.println(member.toString());
+	void info(){
+		System.out.println(member);
 	}
 	
-	void inserBook() {
-		aList.add(new Book("title1", "autor1", "publisher1"));
-		aList.add(new Book("title2", "autor2", "publisher2"));
-		aList.add(new Book("title3", "autor3", "publisher3"));
+	void insertBook() {
+		aList.add(new Book("java", "나자바", "한빛미디어"));
+		aList.add(new Book("oracle", "오로라", "길벗"));
+		aList.add(new Book("aws", "이고잉", "더조은"));
 	}
 	
-	public ArrayList<Book> selectAll() {
+	void insertBook(Book book) {
+		aList.add(book);
+	}
+	
+	List<Book> selectAll() {
 		return aList;
 	}
 	
-	public Book searchBook(String bookTitle) {
+	Book searchBook(String bookTitle) {
 		Book book = null;
+		if(aList.isEmpty()) {
+			System.out.println("책이 없습니다.");
+			return book;
+		}
 		for(int i=0; i<aList.size(); i++) {
-			if(bookTitle.equals(aList.get(i).getTitle()))
+			if(bookTitle.equals(aList.get(i).getTitle())) {
 				book = aList.get(i);
+				break;
+			}
 		}
 		return book;
 	}

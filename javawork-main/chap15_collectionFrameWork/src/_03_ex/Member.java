@@ -5,10 +5,10 @@ public class Member {
 	private int age;
 	private String gender;
 	
-	public Member() {}
+	public Member() {
+	}
 	
 	public Member(String name, int age, String gender) {
-		super();
 		this.name = name;
 		this.age = age;
 		this.gender = gender;
@@ -37,8 +37,9 @@ public class Member {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	
+
+	@Override
 	public String toString() {
-		return "이름 : " + getName() + ", 나이 : "+getAge() + ", 성별 : "+getGender();
+		return "이름 : " + name + ", 나이 : " + age + ", 성별 : " + gender;
 	}
 }
