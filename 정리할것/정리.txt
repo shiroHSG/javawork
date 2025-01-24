@@ -1,0 +1,18 @@
+파일스트림
+
+모델링 uml 정의 필요성
+종류 유스케이스
+
+소프트웨어 개발 프로세스
+
+___
+
+usecase subject(그릴 곳)
+actor
+usecase 기능
+
+generalization 관계
+directed association(?)
+둘의 차이
+
+extend(확장)
