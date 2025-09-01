@@ -1,2 +1,2 @@
-# javawork
-java project
+# Java
+Java 학습
